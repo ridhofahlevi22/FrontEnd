@@ -1,7 +1,11 @@
+// import React from "react";
+// import { serv } from './service/axios';
+
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+
 
 export function receiveLogin() {
     return {
@@ -9,7 +13,7 @@ export function receiveLogin() {
     };
 }
 
-function loginError(payload) {
+export function loginError(payload) {
     return {
         type: LOGIN_FAILURE,
         payload,
@@ -33,6 +37,7 @@ export function logoutUser() {
     return (dispatch) => {
         dispatch(requestLogout());
         localStorage.removeItem('authenticated');
+        localStorage.removeItem('user');
         dispatch(receiveLogout());
     };
 }
@@ -41,7 +46,7 @@ export function loginUser(creds) {
     return (dispatch) => {
 
         dispatch(receiveLogin());
-
+        console.log("data belakang: ", creds);
         if (creds.email.length > 0 && creds.password.length > 0) {
             localStorage.setItem('authenticated', true)
         } else {

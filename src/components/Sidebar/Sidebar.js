@@ -78,115 +78,33 @@ class Sidebar extends React.Component {
                 }}
             >
                 <header className={s.logo}>
-                    <a href="https://demo.flatlogic.com/light-blue-react/">Light <span
-                        className="fw-bold">Blue</span></a>
+                    <a href="#"> 
+                        <span className="fw-bold">APLIKASI</span>
+                    </a>
                 </header>
                 <ul className={s.nav}>
+                    <h5 className={[s.navTitle, s.groupTitle].join(' ')}>MENU</h5>
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
-                        header="Dashboard"
+                        header="INPUT"
                         isHeader
                         iconName={<HomeIcon className={s.menuIcon} />}
-                        link="/app/main"
-                        index="main"
-                    />
-                    <h5 className={[s.navTitle, s.groupTitle].join(' ')}>TEMPLATE</h5>
-                    <LinksGroup
-                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-                        activeItem={this.props.activeItem}
-                        header="Typography"
-                        isHeader
-                        iconName={<TypographyIcon className={s.menuIcon} />}
-                        link="/app/typography"
-                        index="core"
+                        link="/app/input"
+                        index="input"
                     />
                     <LinksGroup
                         onActiveSidebarItemChange={t => this.props.dispatch(changeActiveSidebarItem(t))}
                         activeItem={this.props.activeItem}
-                        header="Tables Basic"
+                        header="TABLE"
                         isHeader
                         iconName={<TablesIcon className={s.menuIcon} />}
-                        link="/app/tables"
-                        index="tables"
+                        link="/app/output"
+                        index="output"
                     />
-                    <LinksGroup
-                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-                        activeItem={this.props.activeItem}
-                        header="Notifications"
-                        isHeader
-                        iconName={<NotificationsIcon className={s.menuIcon}/>}
-                        link="/app/notifications"
-                        index="ui"
-                    />
-                    <LinksGroup
-                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-                        activeItem={this.props.activeItem}
-                        header="Components"
-                        isHeader
-                        iconName={<ComponentsIcon className={s.menuIcon}/>}
-                        link="/app/components"
-                        index="components"
-                        childrenLinks={[
-                            {
-                                header: 'Charts', link: '/app/components/charts',
-                            },
-                            {
-                                header: 'Icons', link: '/app/components/icons',
-                            },
-                            {
-                                header: 'Maps', link: '/app/components/maps',
-                            },
-                        ]}
-                    />
+                    
                 </ul>
-                <h5 className={s.navTitle}>
-                    LABELS
-                    {/* eslint-disable-next-line */}
-                </h5>
-                {/* eslint-disable */}
-                <ul className={s.sidebarLabels}>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-circle text-success mr-2"/>
-                            <span className={s.labelName}>My Recent</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-circle text-primary mr-2"/>
-                            <span className={s.labelName}>Starred</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-circle text-danger mr-2"/>
-                            <span className={s.labelName}>Background</span>
-                        </a>
-                    </li>
-                </ul>
-                {/* eslint-enable */}
-                <h5 className={s.navTitle}>
-                    PROJECTS
-                </h5>
-                <div className={s.sidebarAlerts}>
-                    {this.props.alertsList.map(alert => // eslint-disable-line
-                        <Alert
-                            key={alert.id}
-                            className={s.sidebarAlert} 
-                            color="transparent"
-                            isOpen={true} // eslint-disable-line
-                            toggle={() => {
-                                this.dismissAlert(alert.id);
-                            }}
-                        >
-                            <span>{alert.title}</span><br/>
-                            <Progress className={`bg-subtle-blue progress-xs mt-1`} color={alert.color}
-                                      value={alert.value}/>
-                            <span className={s.alertFooter}>{alert.footer}</span>
-                        </Alert>,
-                    )}
-                </div>
+                
             </nav>
         );
     }

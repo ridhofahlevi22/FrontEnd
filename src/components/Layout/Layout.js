@@ -69,7 +69,7 @@ class Layout extends React.Component {
           <Sidebar />
           <Hammer onSwipe={this.handleSwipe}>
             <main className={s.content}>
-              <BreadcrumbHistory url={this.props.location.pathname} />
+              
               <TransitionGroup>
                 <CSSTransition
                   key={this.props.location.key}
@@ -77,19 +77,14 @@ class Layout extends React.Component {
                   timeout={200}
                 >
                   <Switch>
-                    <Route path="/app/main" exact render={() => <Redirect to="/app/main/dashboard" />} />
-                    <Route path="/app/main/dashboard" exact component={Dashboard} />
-                    <Route path="/app/components/icons" exact component={UIIcons} />
-                    <Route path="/app/notifications" exact component={UINotifications} />
-                    <Route path="/app/components/charts" exact component={Charts} />
-                    <Route path="/app/tables" exact component={TablesStatic} />
-                    <Route path="/app/components/maps" exact component={MapsGoogle} />
-                    <Route path="/app/typography" exact component={CoreTypography} />
+                    <Route path="/app" exact render={() => <Redirect to="/app/input" />} />
+                    <Route path="/app/input" exact component={Dashboard} />
+                    <Route path="/app/output" exact component={TablesStatic} />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
               <footer className={s.contentFooter}>
-                Light Blue React Template - React admin template made by <a href="https://flatlogic.com" >Flatlogic</a>
+                @TESTER APLIKASI
               </footer>
             </main>
           </Hammer>
