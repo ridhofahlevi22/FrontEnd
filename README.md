@@ -1,6 +1,7 @@
 # 🤘 Cara install aplikasi
 
 ## Instalation 
+*Pastikan sudah terinstall nodejs
 
 1. Clone repository
 ```shell
